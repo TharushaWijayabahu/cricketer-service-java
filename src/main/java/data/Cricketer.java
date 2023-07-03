@@ -59,5 +59,18 @@ public class Cricketer {
         this.country = country;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Cricketer cricketer = (Cricketer) o;
+        return jerseyId == cricketer.jerseyId && age == cricketer.age && name.equals(cricketer.name) && country.equals(cricketer.country);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, jerseyId, age, country);
+    }
 }
